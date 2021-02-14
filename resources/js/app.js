@@ -29,10 +29,21 @@ Vue.component('Index', require('./components/Index.vue').default);
  * the page. Then, you may begin adding components to this application
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
-
+// import adminStyle from "/css"
+// const blueThemecss = () => require('sass/adminStyle');
 routes.beforeEach((to, from, next) => {
-    document.title = to.meta.title
-
+    document.title = to.meta.title;
+    // var adminStyle = to.matched.some(record => record.meta.adminStyle);
+    // if(adminStyle){
+    // }
+    // const currentUser = firebase.auth().currentUser
+    // const requireAuth = to.matched.some(record => record.meta.auth)
+  
+    // if (requireAuth && !currentUser) {
+    //   next('/login')
+    // } else {
+    //   next()
+    // }
     next();
 });
 const app = new Vue({

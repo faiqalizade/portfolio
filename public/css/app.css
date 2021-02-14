@@ -6336,6 +6336,10 @@ section .section-header {
   font-weight: 500;
 }
 
+.work-experience {
+  display: flex;
+}
+
 .work-experience-wrapper {
   display: flex;
   flex-direction: column;

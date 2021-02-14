@@ -1,22 +1,30 @@
 <template>
-    <div class="main-wrapper">
-        <div class="avatar-col">
-            <!-- <img src="/images/IMG_3246.jpeg"> -->
-        </div>
-        <div class="content-col">
-            <router-view></router-view>
-        </div>
-        <VMenu />
+    <div style="height:100%">
+        <component :is="currentComponent"></component>
     </div>
 </template>
-<style>
-@import '/css/app.css';
-</style>
 <script>
-    import VMenu from "./Menu";
-    export default {
-        components: {
-            VMenu
+import FrontendMain from "./Main";
+import AdminMain from './admin/Main';
+export default {
+    data() {
+        return {
+            currentComponent: "FrontendMain"
         }
+    },
+    created() {
+        this.checkComponent()
+    },
+    methods: {
+        checkComponent(){
+            if(this.$route.meta.admin){
+                this.currentComponent = "AdminMain"
+            }
+        }
+    },
+    components:{
+        FrontendMain,
+        AdminMain
     }
+}
 </script>

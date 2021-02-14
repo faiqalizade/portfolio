@@ -25,7 +25,10 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.15.2",
+        "semantic-ui-vue": "^0.11.0",
+        "style-loader": "^2.0.0",
         "vue-axios": "^3.2.4",
+        "vue-material": "^1.0.0-beta-15",
         "vue-router": "^3.5.1"
     }
 }

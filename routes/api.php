@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource("blog",BlogController::class);
+Route::post("check",function (){
+    return [
+        'success' => true
+    ];
+});

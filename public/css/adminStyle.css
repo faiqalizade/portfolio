@@ -1,0 +1,10 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons);
+.admin {
+  height: 100%;
+}
+.admin .login-page {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

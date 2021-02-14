@@ -8,7 +8,7 @@
 </head>
 <body>
     <div id="app">
-        <Index />
+        <Index  />
     </div>
     <script src="/js/app.js" ></script>
 </body>

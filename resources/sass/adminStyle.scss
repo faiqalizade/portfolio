@@ -1,0 +1,12 @@
+// @import "/node_modules/semantic-ui-css/semantic.min.css";
+@import "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons";
+
+.admin{
+    height: 100%;
+    .login-page{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
