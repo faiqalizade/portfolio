@@ -68,23 +68,18 @@ export default {
     },
     methods: {
         loadPortfolio: function(){
-            if (Cookies.get("vuser")) {
-                if (JSON.parse(Cookies.get("vuser")).token) {
-                    axios.defaults.headers.common.Authorization = `Bearer ${JSON.parse(Cookies.get("vuser")).token}`;
-                    const options = {
-                        method: 'get',
-                        url: '/api/portfolio',
-                        // data: {
-                        //     title: this.name,
-                        //     body: this.body
-                        // },
-                        transformResponse: [(data) => {
-                            this.PortfolioItems = JSON.parse(data);                            
-                        }]
-                    };
-                    axios(options);
-                }
-            }
+            const options = {
+                method: 'get',
+                url: '/api/portfolio',
+                // data: {
+                //     title: this.name,
+                //     body: this.body
+                // },
+                transformResponse: [(data) => {
+                    this.PortfolioItems = JSON.parse(data);                            
+                }]
+            };
+            axios(options);
         },
         openModal: function(body){
             this.currentBody = body;
