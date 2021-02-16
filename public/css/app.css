@@ -6207,6 +6207,7 @@ body .main-menu .menu-item:hover,
 html .main-menu .menu-item:last-child,
 body .main-menu .menu-item:last-child,
 #app .main-menu .menu-item:last-child {
+  border: none;
   border-radius: 0 5px 5px 0;
 }
 html .main-menu .menu-item:first-child,
