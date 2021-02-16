@@ -105,8 +105,8 @@ export default {
                 method: 'get',
                 url: '/api/resume',
                 transformResponse: [(data) => {
-                    this.skillsArr = JSON.parse(data)[1];
-                    this.languages = JSON.parse(data)[0];
+                    this.skillsArr = JSON.parse(data)[0];
+                    this.languages = JSON.parse(data)[1];
                 }]
             };
             axios(options2);

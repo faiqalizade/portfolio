@@ -6207,13 +6207,11 @@ body .main-menu .menu-item:hover,
 html .main-menu .menu-item:last-child,
 body .main-menu .menu-item:last-child,
 #app .main-menu .menu-item:last-child {
-  border: none;
   border-radius: 0 5px 5px 0;
 }
 html .main-menu .menu-item:first-child,
 body .main-menu .menu-item:first-child,
 #app .main-menu .menu-item:first-child {
-  border: none;
   border-radius: 5px 0 0 5px;
 }
 html .main-menu .router-link-exact-active,
@@ -6418,6 +6416,11 @@ body .work-experience,
 #app .work-experience {
   display: flex;
 }
+html .section-content-from-db,
+body .section-content-from-db,
+#app .section-content-from-db {
+  width: 100%;
+}
 html .work-experience-wrapper,
 body .work-experience-wrapper,
 #app .work-experience-wrapper {
@@ -6544,4 +6547,184 @@ body .portfolio-list-wrapper .portfolio-item:hover,
 #app .portfolio-list-wrapper .portfolio-item:hover {
   transform: scale(100.5%);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+@media only screen and (max-width: 1024px) {
+  html .avatar-col,
+body .avatar-col,
+#app .avatar-col {
+    display: none !important;
+  }
+  html .main-menu,
+body .main-menu,
+#app .main-menu {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+  html .content-col,
+body .content-col,
+#app .content-col {
+    width: 100% !important;
+  }
+  html .content-col .page,
+body .content-col .page,
+#app .content-col .page {
+    padding: 1rem 1.5rem !important;
+    width: calc(100% - 3rem) !important;
+  }
+}
+@media only screen and (max-width: 768px) {
+  html .avatar-col,
+body .avatar-col,
+#app .avatar-col {
+    display: none !important;
+  }
+  html .home,
+body .home,
+#app .home {
+    text-align: center;
+  }
+  html .content-col,
+body .content-col,
+#app .content-col {
+    width: 100% !important;
+  }
+  html .content-col .page,
+body .content-col .page,
+#app .content-col .page {
+    padding: 1rem 0.5rem !important;
+    width: calc(100% - 1rem) !important;
+  }
+  html .main-menu,
+body .main-menu,
+#app .main-menu {
+    border-radius: 0;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    background-color: #fff;
+    font-size: 0.8rem;
+    width: 100%;
+  }
+  html .main-menu .menu-item,
+body .main-menu .menu-item,
+#app .main-menu .menu-item {
+    height: calc(16.666% - 1.6rem);
+    display: flex;
+    flex-direction: column;
+    padding: 0.7rem 0.8rem;
+    width: calc(95px - 1.6rem);
+    align-items: center;
+    border-right: 1px solid #eee;
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+  }
+  html .main-menu .menu-item span:nth-child(1),
+body .main-menu .menu-item span:nth-child(1),
+#app .main-menu .menu-item span:nth-child(1) {
+    margin-bottom: 0;
+  }
+  html .main-menu .menu-item span:nth-child(2),
+body .main-menu .menu-item span:nth-child(2),
+#app .main-menu .menu-item span:nth-child(2) {
+    display: none;
+  }
+  html .main-menu .menu-item:hover,
+body .main-menu .menu-item:hover,
+#app .main-menu .menu-item:hover {
+    background-color: #4169e1;
+    color: #fff;
+    border-right: 1px solid #4169e1;
+  }
+  html .main-menu *,
+body .main-menu *,
+#app .main-menu * {
+    border-radius: 0 !important;
+  }
+  html .main-menu .router-link-exact-active,
+body .main-menu .router-link-exact-active,
+#app .main-menu .router-link-exact-active {
+    background-color: #4169e1;
+    color: #fff;
+    border-right: 1px solid #4169e1;
+  }
+  html .contacts,
+body .contacts,
+#app .contacts {
+    width: calc(100% - 1rem);
+    padding: 1rem 0.5rem;
+  }
+  html .contacts .contacts-wrapper,
+body .contacts .contacts-wrapper,
+#app .contacts .contacts-wrapper {
+    flex-direction: column;
+    width: 100%;
+  }
+  html .contacts .contacts-wrapper .contact-info,
+body .contacts .contacts-wrapper .contact-info,
+#app .contacts .contacts-wrapper .contact-info {
+    width: 100%;
+    margin: 0;
+  }
+  html .contacts .contacts-wrapper .contact-form,
+body .contacts .contacts-wrapper .contact-form,
+#app .contacts .contacts-wrapper .contact-form {
+    width: 100%;
+    margin: 0;
+  }
+  html .blog-list-wrapper .blog-item,
+body .blog-list-wrapper .blog-item,
+#app .blog-list-wrapper .blog-item {
+    width: 100%;
+    margin: 0 0 1rem 0 !important;
+  }
+  html .portfolio-list-wrapper .portfolio-item,
+body .portfolio-list-wrapper .portfolio-item,
+#app .portfolio-list-wrapper .portfolio-item {
+    width: 100%;
+    margin: 0 0 1rem 0 im !important;
+  }
+  html .work-experience .work-experience-item,
+body .work-experience .work-experience-item,
+#app .work-experience .work-experience-item {
+    flex-direction: column;
+  }
+  html .work-experience .work-experience-item .work-experience-date,
+html .work-experience .work-experience-item .work-experience-title,
+html .work-experience .work-experience-item .work-experience-desc,
+body .work-experience .work-experience-item .work-experience-date,
+body .work-experience .work-experience-item .work-experience-title,
+body .work-experience .work-experience-item .work-experience-desc,
+#app .work-experience .work-experience-item .work-experience-date,
+#app .work-experience .work-experience-item .work-experience-title,
+#app .work-experience .work-experience-item .work-experience-desc {
+    width: 100% !important;
+  }
+  html .work-experience .work-experience-item .work-experience-title,
+body .work-experience .work-experience-item .work-experience-title,
+#app .work-experience .work-experience-item .work-experience-title {
+    margin: 0.8rem 0;
+  }
+  html .about-me-content-wrapper,
+body .about-me-content-wrapper,
+#app .about-me-content-wrapper {
+    flex-direction: column;
+  }
+  html .about-me-content-wrapper .about-me-desc,
+body .about-me-content-wrapper .about-me-desc,
+#app .about-me-content-wrapper .about-me-desc {
+    width: 100% !important;
+    margin: 0 0 1rem 0 !important;
+  }
+  html .about-me-content-wrapper .about-me-personal-info,
+body .about-me-content-wrapper .about-me-personal-info,
+#app .about-me-content-wrapper .about-me-personal-info {
+    width: 100% !important;
+    margin: 0 0 1rem 0 !important;
+  }
+  html .about-me-content-wrapper .about-me-personal-info-labels,
+body .about-me-content-wrapper .about-me-personal-info-labels,
+#app .about-me-content-wrapper .about-me-personal-info-labels {
+    margin-right: 2rem !important;
+  }
 }

@@ -76,11 +76,11 @@ body,
                 border-right: 1px solid $blue;
             }
             &:last-child{
-                border: none;
+                // border: none;
                 border-radius: 0 5px 5px 0;
             }
             &:first-child{
-                border: none;
+                // border: none;
                 border-radius: 5px 0 0 5px;
             }
         }
@@ -225,6 +225,9 @@ body,
     .work-experience{
         display: flex;
     }
+    .section-content-from-db{
+        width: 100%;
+    }
     .work-experience-wrapper{
         display: flex;
         flex-direction: column;
@@ -312,4 +315,5 @@ body,
             }
         }
     }
+    @import 'mobile';
 }
