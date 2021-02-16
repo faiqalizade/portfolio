@@ -3,11 +3,18 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Api\WorkExperiences;
+use App\Models\WorkExperiences;
 use Illuminate\Http\Request;
 
 class WorkExperiencesController extends Controller
 {
+    /**
+     * Class constructor.
+     */
+    public function __construct()
+    {
+        $this->middleware('auth:sanctum')->only(['store','update','destroy']);
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,6 +23,7 @@ class WorkExperiencesController extends Controller
     public function index()
     {
         //
+        return response(WorkExperiences::orderByDesc("created_at")->get());
     }
 
     /**
@@ -37,6 +45,14 @@ class WorkExperiencesController extends Controller
     public function store(Request $request)
     {
         //
+        // return response($request);
+        $this->validate($request,[
+            'date' => "required",
+            'title' => "required",
+            'company' => "required",
+            'description' => "required",
+        ]);
+        return WorkExperiences::create($request->all());
     }
 
     /**
@@ -68,9 +84,17 @@ class WorkExperiencesController extends Controller
      * @param  \App\Models\Api\WorkExperiences  $workExperiences
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, WorkExperiences $workExperiences)
+    public function update(Request $request, WorkExperiences $workExperiences,$work)
     {
         //
+        $this->validate($request,[
+            'date' => "required",
+            'title' => "required",
+            'company' => "required",
+            'description' => "required",
+        ]);
+        $work = $workExperiences::findOrFail($work);
+        return response($work->fill($request->all())->save());
     }
 
     /**
@@ -79,8 +103,10 @@ class WorkExperiencesController extends Controller
      * @param  \App\Models\Api\WorkExperiences  $workExperiences
      * @return \Illuminate\Http\Response
      */
-    public function destroy(WorkExperiences $workExperiences)
+    public function destroy(WorkExperiences $workExperiences, $id)
     {
         //
+        $work = $workExperiences::findOrFail($id);
+        return response($work->delete());
     }
 }

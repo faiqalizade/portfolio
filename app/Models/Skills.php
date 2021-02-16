@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Skills extends Model
 {
     use HasFactory;
+    protected $fillable = array(
+        'title', 'level', 'lang'
+    );
 }

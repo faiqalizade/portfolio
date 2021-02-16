@@ -23,6 +23,7 @@ class SkillsController extends Controller
     public function index()
     {
         //
+        return response(Skills::get()->groupBy("lang"));
     }
 
     /**
@@ -44,7 +45,12 @@ class SkillsController extends Controller
     public function store(Request $request)
     {
         //
-        return response($request);
+        $this->validate($request,[
+            'title' => "required",
+            'level' => "required|min:0|max:100"
+        ]);
+        return Skills::create($request->all());
+        // return response($request);
     }
 
     /**
@@ -76,9 +82,15 @@ class SkillsController extends Controller
      * @param  \App\Models\Skills  $skills
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Skills $skills)
+    public function update(Request $request, Skills $skills,$skill)
     {
         //
+        $this->validate($request,[
+            'title' => "required",
+            'level' => "required|min:0|max:100"
+        ]);
+        $skill = $skills::findOrFail($skill);
+        return response($skill->fill($request->all())->save());
     }
 
     /**
@@ -87,8 +99,10 @@ class SkillsController extends Controller
      * @param  \App\Models\Skills  $skills
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Skills $skills)
+    public function destroy(Skills $skills,$id)
     {
         //
+        $skill = $skills::findOrFail($id);
+        return response($skill->delete());
     }
 }

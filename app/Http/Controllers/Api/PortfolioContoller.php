@@ -46,11 +46,7 @@ class PortfolioContoller extends Controller
      */
     public function store(Request $request)
     {
-        //
-        $portfolio = new Portfolio;
-        $portfolio->title = $request->title;
-        $portfolio->body = $request->body;
-        return $portfolio->save();
+        return Portfolio::create($request->all());
     }
 
     /**
@@ -62,8 +58,7 @@ class PortfolioContoller extends Controller
     public function show($id)
     {
         //
-        $portfolio = Portfolio::find($id);
-        return response($portfolio);
+        return response(Portfolio::find($id));
     }
 
     /**
@@ -91,11 +86,8 @@ class PortfolioContoller extends Controller
             "title" => "required",
             "body"  => "required"
         ]);
-        $portfolio = Portfolio::find($id);
-        $portfolio->title = $request->title;
-        $portfolio->body = $request->body;
-        $portfolio->save();
-        return response($portfolio);
+        $portfolio = Portfolio::findOrFail($id);
+        return response($portfolio->fill($request->fill())->save());
     }
 
     /**
@@ -107,7 +99,7 @@ class PortfolioContoller extends Controller
     public function destroy($id)
     {
         //
-        $portfolio = Portfolio::find($id);
+        $portfolio = Portfolio::findOrFail($id);
         if($portfolio->delete()){
             return response(true);
         }

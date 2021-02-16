@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class WorkExperiences extends Model
 {
     use HasFactory;
+    protected $fillable = array(
+        'date', 'title', 'company', 'description'
+    );
 }
