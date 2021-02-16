@@ -1917,7 +1917,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios__WEBPACK_IMPORTED_MODULE_0___default()({
         method: 'get',
-        url: '/api/site/',
+        url: '/api/site',
         transformResponse: [function (data) {
           var response = JSON.parse(data);
           _this.aboutHtml = response.about;
@@ -2143,7 +2143,7 @@ __webpack_require__.r(__webpack_exports__);
       if (this.name && this.email && this.message) {
         axios__WEBPACK_IMPORTED_MODULE_1___default()({
           method: "post",
-          url: "/api/sendMail/",
+          url: "/api/sendMail",
           data: {
             name: this.name,
             email: this.email,
@@ -2304,7 +2304,7 @@ __webpack_require__.r(__webpack_exports__);
       (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.headers.common.Authorization) = "";
       var options = {
         method: 'post',
-        url: '/api/login/',
+        url: '/api/login',
         data: {
           username: this.username,
           password: this.password
@@ -2336,7 +2336,7 @@ __webpack_require__.r(__webpack_exports__);
           (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.headers.common.Authorization) = "Bearer ".concat(JSON.parse(js_cookie__WEBPACK_IMPORTED_MODULE_1___default().get("vuser")).token);
           var options = {
             method: 'get',
-            url: '/api/login/check/',
+            url: '/api/login/check',
             transformResponse: [function (data) {
               var response = JSON.parse(data);
 
@@ -2526,7 +2526,7 @@ __webpack_require__.r(__webpack_exports__);
           (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.headers.common.Authorization) = "Bearer ".concat(JSON.parse(js_cookie__WEBPACK_IMPORTED_MODULE_1___default().get("vuser")).token);
           var options = {
             method: 'get',
-            url: '/api/portfolio/',
+            url: '/api/portfolio',
             // data: {
             //     title: this.name,
             //     body: this.body
@@ -2662,7 +2662,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var options = {
         method: 'get',
-        url: '/api/work/',
+        url: '/api/work',
         transformResponse: [function (data) {
           _this.Works = JSON.parse(data);
         }]
@@ -2670,7 +2670,7 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_1___default()(options);
       var options2 = {
         method: 'get',
-        url: '/api/resume/',
+        url: '/api/resume',
         transformResponse: [function (data) {
           _this.skillsArr = JSON.parse(data)[1];
           _this.languages = JSON.parse(data)[0];
@@ -2751,7 +2751,7 @@ __webpack_require__.r(__webpack_exports__);
           (axios__WEBPACK_IMPORTED_MODULE_1___default().defaults.headers.common.Authorization) = "Bearer ".concat(JSON.parse(js_cookie__WEBPACK_IMPORTED_MODULE_0___default().get("vuser")).token);
           var options = {
             method: 'post',
-            url: '/api/portfolio/',
+            url: '/api/portfolio',
             data: {
               title: this.name,
               body: this.body
@@ -2834,7 +2834,7 @@ __webpack_require__.r(__webpack_exports__);
           (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.headers.common.Authorization) = "Bearer ".concat(JSON.parse(js_cookie__WEBPACK_IMPORTED_MODULE_1___default().get("vuser")).token);
           var options = {
             method: 'get',
-            url: '/api/login/check/',
+            url: '/api/login/check',
             transformResponse: [function (data) {
               var response = JSON.parse(data);
 
@@ -2939,7 +2939,7 @@ __webpack_require__.r(__webpack_exports__);
           (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.headers.common.Authorization) = "Bearer ".concat(JSON.parse(js_cookie__WEBPACK_IMPORTED_MODULE_1___default().get("vuser")).token);
           var options = {
             method: 'get',
-            url: '/api/portfolio/',
+            url: '/api/portfolio',
             // data: {
             //     title: this.name,
             //     body: this.body
@@ -3132,7 +3132,7 @@ __webpack_require__.r(__webpack_exports__);
           if (!this.Skill.id) {
             var options = {
               method: 'post',
-              url: '/api/resume/',
+              url: '/api/resume',
               data: {
                 title: this.Skill.label,
                 level: this.Skill.level,
@@ -3173,7 +3173,7 @@ __webpack_require__.r(__webpack_exports__);
           if (this.WorkExperience.id == null) {
             var options = {
               method: 'post',
-              url: '/api/work/',
+              url: '/api/work',
               data: {
                 date: this.WorkExperience.date,
                 title: this.WorkExperience.title,
@@ -3209,7 +3209,7 @@ __webpack_require__.r(__webpack_exports__);
 
       var options = {
         method: 'get',
-        url: '/api/work/',
+        url: '/api/work',
         transformResponse: [function (data) {
           var response = JSON.parse(data);
 
@@ -3221,7 +3221,7 @@ __webpack_require__.r(__webpack_exports__);
       axios__WEBPACK_IMPORTED_MODULE_0___default()(options);
       var options2 = {
         method: 'get',
-        url: '/api/resume/',
+        url: '/api/resume',
         transformResponse: [function (data) {
           _this2.Skills = JSON.parse(data);
         }]
@@ -3355,7 +3355,7 @@ __webpack_require__.r(__webpack_exports__);
 
       axios__WEBPACK_IMPORTED_MODULE_0___default()({
         method: 'get',
-        url: '/api/site/',
+        url: '/api/site',
         transformResponse: [function (data) {
           var response = JSON.parse(data);
           _this.Site = response; // console.log(response);

@@ -94,7 +94,7 @@ export default {
         loadList: function(){
             const options = {
                 method: 'get',
-                url: '/api/work/',
+                url: '/api/work',
                 transformResponse: [(data) => {
                     this.Works = JSON.parse(data);
                 }]
@@ -103,7 +103,7 @@ export default {
 
             const options2 = {
                 method: 'get',
-                url: '/api/resume/',
+                url: '/api/resume',
                 transformResponse: [(data) => {
                     this.skillsArr = JSON.parse(data)[1];
                     this.languages = JSON.parse(data)[0];

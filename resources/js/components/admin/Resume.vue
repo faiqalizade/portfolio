@@ -113,7 +113,7 @@ export default {
                     if(!this.Skill.id){
                         var options = {
                             method: 'post',
-                            url: '/api/resume/',
+                            url: '/api/resume',
                             data: {
                                 title: this.Skill.label,
                                 level: this.Skill.level,
@@ -153,7 +153,7 @@ export default {
                     if (this.WorkExperience.id == null) {
                         var options = {
                             method: 'post',
-                            url: '/api/work/',
+                            url: '/api/work',
                             data: {
                                 date: this.WorkExperience.date,
                                 title: this.WorkExperience.title,
@@ -187,7 +187,7 @@ export default {
         loadList: function(){
             const options = {
                 method: 'get',
-                url: '/api/work/',
+                url: '/api/work',
                 transformResponse: [(data) => {
                     var response = JSON.parse(data);
                     if (response) {
@@ -199,7 +199,7 @@ export default {
 
             const options2 = {
                 method: 'get',
-                url: '/api/resume/',
+                url: '/api/resume',
                 transformResponse: [(data) => {
                     this.Skills = JSON.parse(data);
                 }]

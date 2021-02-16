@@ -62,7 +62,7 @@ export default {
             if (this.name && this.email && this.message) {
                 axios({
                     method: "post",
-                    url: "/api/sendMail/",
+                    url: "/api/sendMail",
                     data: {
                         name: this.name,
                         email: this.email,

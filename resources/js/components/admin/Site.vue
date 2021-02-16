@@ -46,7 +46,7 @@ export default {
         loadSite: function(){
             axios({
                 method: 'get',
-                url: '/api/site/',
+                url: '/api/site',
                 transformResponse: [(data) => {
                     var response = JSON.parse(data);
                     this.Site = response

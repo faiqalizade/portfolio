@@ -45,7 +45,7 @@ export default {
                     axios.defaults.headers.common.Authorization = `Bearer ${JSON.parse(Cookies.get("vuser")).token}`;
                     const options = {
                         method: 'get',
-                        url: '/api/login/check/',
+                        url: '/api/login/check',
                         transformResponse: [(data) => {
                             var response = JSON.parse(data);
                             if(!response){
