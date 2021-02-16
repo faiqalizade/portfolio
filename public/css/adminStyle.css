@@ -1,6 +1,6 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons);
 .admin {
   height: 100%;
+  padding: 3rem;
 }
 .admin .login-page {
   height: 100%;

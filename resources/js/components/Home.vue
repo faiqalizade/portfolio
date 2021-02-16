@@ -5,11 +5,11 @@
             <span class="surname" >Alizade</span>
         </h1>
         <div class="about-text">
-            <span>I'm a</span>
-            <span>FULL-STACK WEB DEVELOPER</span>
+            <span>Я</span>
+            <span>FULL-STACK ВЕБ-РАЗРАБОТЧИК</span>
         </div>
         <div class="btn-wrapper">
-            <VButton text="Download CV" > </VButton>
+            <VButton cv="files/CV.pdf" text="Скачать CV" > </VButton>
         </div>
     </div>
 </template>

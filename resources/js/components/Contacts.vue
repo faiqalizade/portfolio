@@ -1,6 +1,6 @@
 <template>
     <div class="contacts">
-        <h1>Get in Touch</h1>
+        <h1>Свяжитесь</h1>
         <div class="contacts-wrapper">
             <div class="contact-info">
                 <div class="contact-info-item contact-info-item_phone">
@@ -29,19 +29,59 @@
                 </div>
             </div>
             <form class="contact-form" >
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <textarea name="" id="" cols="30" rows="10" placeholder="Message" ></textarea>
-                <VButton text="Send Message" />
+                <input v-model="name" type="text" placeholder="Name">
+                <input v-model="email" type="email" placeholder="Email">
+                <textarea v-model="message" name="" id="" cols="30" rows="10" placeholder="Message" ></textarea>
+                <VButton v-on:click.native="sendMessage" :text="buttonText" />
             </form>
         </div>
     </div>
 </template>
+<style>
+
+</style>
 <script>
-import VButton from './Button'
+import VButton from './Button';
+import axios from "axios";
 export default {
     components:{
         VButton
-    }
+    },
+    data() {
+        return {
+            name: null,
+            email: null,
+            message: null,
+            buttonText: "Send"
+        }
+    },
+    methods: {
+        sendMessage: function(){
+            this.buttonText = 'Sending....';
+            // console.log('asd');
+            if (this.name && this.email && this.message) {
+                axios({
+                    method: "post",
+                    url: "/api/sendMail/",
+                    data: {
+                        name: this.name,
+                        email: this.email,
+                        message: this.message
+                    },
+                    transformResponse: [(data) => {
+                        setTimeout(() => {
+                            this.buttonText = 'Sent';
+                            setTimeout(() => {
+                                this.buttonText = 'Send';
+                                this.name = "";
+                                this.email = "";
+                                this.message = "";
+                            }, 1000);
+                        }, 1000);
+                    }]
+                });
+            }
+        }
+    },
 }
 </script>

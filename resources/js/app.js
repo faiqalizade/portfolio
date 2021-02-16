@@ -8,7 +8,6 @@
 // require('./bootstrap');
 import routes from './routes';
 window.Vue = require('vue').default;
-
 // Vue.use(VueRouter);
 /**
  * The following block of code may be used to automatically register your

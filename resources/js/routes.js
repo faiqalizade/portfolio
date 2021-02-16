@@ -12,6 +12,10 @@ import Login from "./components/Login";
 import Dashboard from "./components/admin/Dashboard";
 import Posts from "./components/admin/Posts";
 import AdminPortfolio from "./components/admin/Portfolio";
+import CreatePortfolio from './components/admin/CreatePortfolio';
+import UpdatePortfolio from './components/admin/UpdatePortfolio';
+import Site from './components/admin/Site';
+import AdminResume from './components/admin/Resume';
 const routes = [
     {
         path: "/",
@@ -58,6 +62,26 @@ const routes = [
             {
                 path: 'portfolio',
                 component: AdminPortfolio,
+                meta: { title: 'Faig Alizade | PORTFOLIO', auth: true, admin: true},
+            },
+            {
+                path: "portfolio/create",
+                component: CreatePortfolio,
+                meta: { title: 'Faig Alizade | PORTFOLIO', auth: true, admin: true}
+            },
+            {
+                path: "portfolio/update/:id",
+                component: UpdatePortfolio,
+                meta: { title: 'Faig Alizade | PORTFOLIO', auth: true, admin: true}
+            },
+            {
+                path: "site",
+                component: Site,
+                meta: { title: 'Faig Alizade | PORTFOLIO', auth: true, admin: true}
+            },
+            {
+                path: "resume",
+                component: AdminResume,
                 meta: { title: 'Faig Alizade | PORTFOLIO', auth: true, admin: true}
             }
         ],

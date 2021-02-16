@@ -1,5 +1,7 @@
 // @import "/node_modules/semantic-ui-css/semantic.min.css";
-@import "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons";
+// @import "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,400italic|Material+Icons";
+// @import "https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css";
+
 
 .admin{
     height: 100%;
@@ -9,4 +11,5 @@
         align-items: center;
         justify-content: center;
     }
+    padding: 3rem;
 }

@@ -1,11 +1,14 @@
 <template>
     <div class="about page">
-        <h1>About <span class="bluetext" >me</span></h1>
+        <h1>Обо <span class="bluetext" >мне</span></h1>
         <div class="about-me-content-wrapper">
             <div class="about-me-desc">
-                <h3>I'm Faig and <span class="bluetext">web developer</span></h3>
+                <h3>Я Фаиг и <span class="bluetext">я веб-разработчик</span></h3>
                 <div class="about-me-content">
-                    Hi! My name is Martin Peterson. I am a Web Developer, and I'm very passionate and dedicated to my work. With 20 years experience as a professional Web developer, I have acquired the skills and knowledge necessary to make your project a success. I enjoy every step of the design process, from discussion and collaboration from discussion and collaboration.
+                    Привет меня зовут Ализаде Фаиг и я Full-stack веб разработчик. С моим более {{experience}} летним опытом в этой сфере.
+                    У меня есть достаточно опыта чтобы создать сайт, веб-приложение с нуля под ключ. С этим опытом мне приходилось увидеть разные дизайны сайтов.
+                    И я могу сделать современный дизайн сайта. Свяжитесь со мной чтобы обсудить все.
+                    Я родом из Азербайджана и работаю только удаленно.
                 </div>
             </div>
             <div class="about-me-personal-info">
@@ -19,35 +22,59 @@
                 <div class="about-me-personal-info-contents">
                     <div>09.12.2000</div>
                     <div>{{ age }}</div>
-                    <div>faiq.alizade.00@mail.ru</div>
-                    <div>+994 51 368 88 89</div>
-                    <div>https://faigalizade.com</div>
+                    <div>{{email}}</div>
+                    <div>{{phone}}</div>
+                    <div>{{website}}</div>
                 </div>
             </div>
         </div>
         <section class="about-me-section">
-            <div class="section-header-wrapper">
+            <!--<div class="section-header-wrapper">
                 <div class="section-header">
-                    What I do
+                    Что я умею
                 </div>
+            </div> -->
+            <div class="section-content-from-db" v-html="aboutHtml" >
+
             </div>
         </section>
-
     </div>
 </template>
 <script>
+import axios from "axios";
 export default {
     data: () =>({
-        age: 20
+        age: 20,
+        experience: 3,
+        aboutHtml: '',
+        email: "",
+        phone: "",
+        website: "",
     }),
     mounted() {
         this.getAge();
+        this.getAbout();
     },
     methods:{
         getAge: function(){
             var date = new Date();
             var currentAge = date.getFullYear() - 2001;
             this.age = currentAge;
+            this.experience = date.getFullYear() - 2018;
+        },
+        getAbout: function(){
+            axios({
+                method: 'get',
+                url: '/api/site/',
+                transformResponse: [(data) => {
+                    var response = JSON.parse(data);
+                    this.aboutHtml = response.about;
+                    this.email = response.email;
+                    this.phone = response.phone;
+                    this.website = response.website;
+                    // console.log(data);
+                }]
+            })
         }
     }
 }
