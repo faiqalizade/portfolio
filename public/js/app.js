@@ -2336,11 +2336,11 @@ __webpack_require__.r(__webpack_exports__);
           (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.headers.common.Authorization) = "Bearer ".concat(JSON.parse(js_cookie__WEBPACK_IMPORTED_MODULE_1___default().get("vuser")).token);
           var options = {
             method: 'get',
-            url: '/api/check/',
+            url: '/api/login/check/',
             transformResponse: [function (data) {
               var response = JSON.parse(data);
 
-              if (response.success) {
+              if (response) {
                 _this2.$router.push("/admin/");
               } else {
                 js_cookie__WEBPACK_IMPORTED_MODULE_1___default().remove("vuser");
@@ -2782,6 +2782,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! js-cookie */ "./node_modules/js-cookie/src/js.cookie.js");
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_1__);
 //
 //
 //
@@ -2815,7 +2819,40 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({});
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  created: function created() {
+    this.authCheck();
+  },
+  methods: {
+    authCheck: function authCheck() {
+      var _this = this;
+
+      if (js_cookie__WEBPACK_IMPORTED_MODULE_1___default().get("vuser")) {
+        if (JSON.parse(js_cookie__WEBPACK_IMPORTED_MODULE_1___default().get("vuser")).token) {
+          (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.headers.common.Authorization) = "Bearer ".concat(JSON.parse(js_cookie__WEBPACK_IMPORTED_MODULE_1___default().get("vuser")).token);
+          var options = {
+            method: 'get',
+            url: '/api/login/check/',
+            transformResponse: [function (data) {
+              var response = JSON.parse(data);
+
+              if (!response) {
+                js_cookie__WEBPACK_IMPORTED_MODULE_1___default().remove("vuser");
+
+                _this.$router.push("/login/");
+              }
+            }]
+          };
+          axios__WEBPACK_IMPORTED_MODULE_0___default()(options);
+        }
+      } else {
+        this.$router.push("/login/");
+      }
+    }
+  }
+});
 
 /***/ }),
 
@@ -3440,6 +3477,10 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _routes__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./routes */ "./resources/js/routes.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! axios */ "./node_modules/axios/index.js");
+/* harmony import */ var axios__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(axios__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! js-cookie */ "./node_modules/js-cookie/src/js.cookie.js");
+/* harmony import */ var js_cookie__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(js_cookie__WEBPACK_IMPORTED_MODULE_2__);
 /**
  * First we will load all of this project's JavaScript dependencies which
  * includes Vue and other libraries. It is a great starting point when
@@ -3448,7 +3489,9 @@ __webpack_require__.r(__webpack_exports__);
 // import VueRouter from 'vue-router'
 // require('./bootstrap');
 
-window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js").default; // Vue.use(VueRouter);
+window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm.js").default;
+
+ // Vue.use(VueRouter);
 
 /**
  * The following block of code may be used to automatically register your
@@ -3475,11 +3518,11 @@ _routes__WEBPACK_IMPORTED_MODULE_0__.default.beforeEach(function (to, from, next
   // if(adminStyle){
   // }
   // const currentUser = firebase.auth().currentUser
-  // const requireAuth = to.matched.some(record => record.meta.auth)
+  // const requireAuth = to.matched.some(record => record.meta.auth);
   // if (requireAuth && !currentUser) {
-  //   next('/login')
+  //     next('/login/');
   // } else {
-  //   next()
+  //     next();
   // }
 
   next();
@@ -6824,59 +6867,67 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "login-page" }, [
-    _c(
-      "form",
-      [
-        _c(
-          "md-field",
-          [
-            _c("label", [_vm._v("Login")]),
-            _vm._v(" "),
-            _c("md-input", {
-              attrs: { name: "username" },
-              model: {
-                value: _vm.username,
-                callback: function($$v) {
-                  _vm.username = $$v
-                },
-                expression: "username"
-              }
-            })
-          ],
-          1
-        ),
+    _c("form", [
+      _c("div", [
+        _c("label", [_vm._v("Login")]),
         _vm._v(" "),
-        _c(
-          "md-field",
-          [
-            _c("label", [_vm._v("Password")]),
-            _vm._v(" "),
-            _c("md-input", {
-              attrs: { name: "password", type: "password" },
-              model: {
-                value: _vm.password,
-                callback: function($$v) {
-                  _vm.password = $$v
-                },
-                expression: "password"
-              }
-            })
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.username,
+              expression: "username"
+            }
           ],
-          1
-        ),
+          attrs: { name: "username", type: "text" },
+          domProps: { value: _vm.username },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.username = $event.target.value
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c("div", [
+        _c("label", [_vm._v("Password")]),
         _vm._v(" "),
-        _c(
-          "md-button",
-          {
-            staticClass: "md-raised md-primary",
-            staticStyle: { width: "100%", margin: "0" },
-            on: { click: _vm.sendForm }
-          },
-          [_vm._v("Login")]
-        )
-      ],
-      1
-    )
+        _c("input", {
+          directives: [
+            {
+              name: "model",
+              rawName: "v-model",
+              value: _vm.password,
+              expression: "password"
+            }
+          ],
+          attrs: { name: "password", type: "password" },
+          domProps: { value: _vm.password },
+          on: {
+            input: function($event) {
+              if ($event.target.composing) {
+                return
+              }
+              _vm.password = $event.target.value
+            }
+          }
+        })
+      ]),
+      _vm._v(" "),
+      _c(
+        "div",
+        {
+          staticClass: "md-raised md-primary",
+          staticStyle: { width: "100%", margin: "0" },
+          on: { click: _vm.sendForm }
+        },
+        [_vm._v("Login")]
+      )
+    ])
   ])
 }
 var staticRenderFns = []

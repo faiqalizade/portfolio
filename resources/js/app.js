@@ -8,6 +8,8 @@
 // require('./bootstrap');
 import routes from './routes';
 window.Vue = require('vue').default;
+import axios from "axios";
+import Cookies from "js-cookie";
 // Vue.use(VueRouter);
 /**
  * The following block of code may be used to automatically register your
@@ -36,12 +38,12 @@ routes.beforeEach((to, from, next) => {
     // if(adminStyle){
     // }
     // const currentUser = firebase.auth().currentUser
-    // const requireAuth = to.matched.some(record => record.meta.auth)
-  
+    // const requireAuth = to.matched.some(record => record.meta.auth);
+    
     // if (requireAuth && !currentUser) {
-    //   next('/login')
+    //     next('/login/');
     // } else {
-    //   next()
+    //     next();
     // }
     next();
 });

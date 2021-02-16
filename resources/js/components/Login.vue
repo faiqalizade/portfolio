@@ -1,15 +1,15 @@
 <template>
     <div class="login-page" >
         <form >
-            <md-field>
+            <div>
                 <label>Login</label>
-                <md-input name="username" v-model="username"></md-input>
-            </md-field>
-            <md-field>
+                <input name="username" v-model="username" type="text" >
+            </div>
+            <div>
                 <label>Password</label>
-                <md-input name="password" v-model="password" type="password"></md-input>
-            </md-field>
-            <md-button v-on:click="sendForm" style="width:100%; margin:0" class="md-raised md-primary">Login</md-button>
+                <input name="password" v-model="password" type="password">
+            </div>
+            <div v-on:click="sendForm" style="width:100%; margin:0" class="md-raised md-primary">Login</div>
         </form>
     </div>
 </template>
@@ -61,10 +61,10 @@ export default {
                     axios.defaults.headers.common.Authorization = `Bearer ${JSON.parse(Cookies.get("vuser")).token}`;
                     const options = {
                         method: 'get',
-                        url: '/api/check/',
+                        url: '/api/login/check/',
                         transformResponse: [(data) => {
                             var response = JSON.parse(data);
-                            if(response.success){
+                            if(response){
                                 this.$router.push("/admin/");
                             }else{
                                 Cookies.remove("vuser");

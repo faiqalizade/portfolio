@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get("check",function (){return response(['success' => true],200);});
+// Route::middleware('auth:sanctum')->get("check",function (){return response(['success' => true],200);});
 
 Route::middleware('auth:sanctum')->resource("blog",BlogController::class);
 Route::resource("portfolio",PortfolioContoller::class);
@@ -30,5 +30,5 @@ Route::resource("work",WorkExperiencesController::class);
 Route::resource("resume",SkillsController::class);
 Route::post("login",[LoginController::class,'store']);
 // Route::middleware('auth:sanctum')->post("login",[LoginController::class,'store']);
-Route::middleware('auth:sanctum')->get("login/check/",[LoginController::class,'check']);
+Route::middleware('auth:sanctum')->get("login/check/",[LoginController::class,'checkAuth']);
 Route::post("sendMail",[HomeController::class,'sendMail']);

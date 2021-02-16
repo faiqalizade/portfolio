@@ -32,7 +32,34 @@
     
 </style>
 <script>
+import axios from "axios";
+import Cookies from "js-cookie";
 export default {
-    
+    created() {
+        this.authCheck();
+    },
+    methods: {
+        authCheck: function(){
+            if (Cookies.get("vuser")) {
+                if (JSON.parse(Cookies.get("vuser")).token) {
+                    axios.defaults.headers.common.Authorization = `Bearer ${JSON.parse(Cookies.get("vuser")).token}`;
+                    const options = {
+                        method: 'get',
+                        url: '/api/login/check/',
+                        transformResponse: [(data) => {
+                            var response = JSON.parse(data);
+                            if(!response){
+                                Cookies.remove("vuser");
+                                this.$router.push("/login/");
+                            }
+                        }]
+                    };
+                    axios(options);
+                }
+            }else{
+                this.$router.push("/login/");
+            }
+        }
+    },
 }
 </script>
