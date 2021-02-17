@@ -6731,11 +6731,14 @@ body .about-me-content-wrapper .about-me-personal-info-labels,
   html .modal-wrapper,
 body .modal-wrapper,
 #app .modal-wrapper {
+    width: 100%;
     padding: 0 !important;
   }
   html .modal-wrapper .modal-content-wrapper,
 body .modal-wrapper .modal-content-wrapper,
 #app .modal-wrapper .modal-content-wrapper {
+    width: calc(100% - 2rem);
+    height: calc(100% - 2rem);
     padding: 1rem !important;
   }
 }
