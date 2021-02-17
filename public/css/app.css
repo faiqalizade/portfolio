@@ -6683,7 +6683,7 @@ body .blog-list-wrapper .blog-item,
 body .portfolio-list-wrapper .portfolio-item,
 #app .portfolio-list-wrapper .portfolio-item {
     width: 100%;
-    margin: 0 0 1rem 0 im !important;
+    margin: 0 0 1rem 0 !important;
   }
   html .work-experience .work-experience-item,
 body .work-experience .work-experience-item,
@@ -6727,5 +6727,15 @@ body .about-me-content-wrapper .about-me-personal-info,
 body .about-me-content-wrapper .about-me-personal-info-labels,
 #app .about-me-content-wrapper .about-me-personal-info-labels {
     margin-right: 2rem !important;
+  }
+  html .modal-wrapper,
+body .modal-wrapper,
+#app .modal-wrapper {
+    padding: 0 !important;
+  }
+  html .modal-wrapper .modal-content-wrapper,
+body .modal-wrapper .modal-content-wrapper,
+#app .modal-wrapper .modal-content-wrapper {
+    padding: 1rem !important;
   }
 }
