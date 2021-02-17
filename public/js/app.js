@@ -2521,23 +2521,14 @@ __webpack_require__.r(__webpack_exports__);
     loadPortfolio: function loadPortfolio() {
       var _this = this;
 
-      if (js_cookie__WEBPACK_IMPORTED_MODULE_1___default().get("vuser")) {
-        if (JSON.parse(js_cookie__WEBPACK_IMPORTED_MODULE_1___default().get("vuser")).token) {
-          (axios__WEBPACK_IMPORTED_MODULE_0___default().defaults.headers.common.Authorization) = "Bearer ".concat(JSON.parse(js_cookie__WEBPACK_IMPORTED_MODULE_1___default().get("vuser")).token);
-          var options = {
-            method: 'get',
-            url: '/api/portfolio',
-            // data: {
-            //     title: this.name,
-            //     body: this.body
-            // },
-            transformResponse: [function (data) {
-              _this.PortfolioItems = JSON.parse(data);
-            }]
-          };
-          axios__WEBPACK_IMPORTED_MODULE_0___default()(options);
-        }
-      }
+      var options = {
+        method: 'get',
+        url: '/api/portfolio',
+        transformResponse: [function (data) {
+          _this.PortfolioItems = JSON.parse(data);
+        }]
+      };
+      axios__WEBPACK_IMPORTED_MODULE_0___default()(options);
     },
     openModal: function openModal(body) {
       this.currentBody = body;

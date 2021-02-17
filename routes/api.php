@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Api\PortfolioContoller;
+use App\Http\Controllers\Api\PortfolioController;
 use App\Http\Controllers\Api\SkillsController;
 use App\Http\Controllers\Api\WorkExperiencesController;
 use App\Http\Controllers\Auth\LoginController;
@@ -24,7 +24,7 @@ use Illuminate\Support\Facades\Route;
 // Route::middleware('auth:sanctum')->get("check",function (){return response(['success' => true],200);});
 
 Route::middleware('auth:sanctum')->resource("blog",BlogController::class);
-Route::resource("portfolio",PortfolioContoller::class);
+Route::resource("portfolio",PortfolioController::class);
 Route::resource("site",SiteController::class);
 Route::resource("work",WorkExperiencesController::class);
 Route::resource("resume",SkillsController::class);

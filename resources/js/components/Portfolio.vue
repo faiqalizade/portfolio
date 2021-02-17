@@ -71,10 +71,6 @@ export default {
             const options = {
                 method: 'get',
                 url: '/api/portfolio',
-                // data: {
-                //     title: this.name,
-                //     body: this.body
-                // },
                 transformResponse: [(data) => {
                     this.PortfolioItems = JSON.parse(data);                            
                 }]

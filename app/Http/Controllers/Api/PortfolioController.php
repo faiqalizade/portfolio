@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
 
-class PortfolioContoller extends Controller
+class PortfolioController extends Controller
 {
 
     /**
@@ -25,7 +25,7 @@ class PortfolioContoller extends Controller
     {
         //
         $portfolio = Portfolio::orderByDesc("created_at")->get();
-        return response($portfolio,200);
+        return response($portfolio);
     }
 
     /**
