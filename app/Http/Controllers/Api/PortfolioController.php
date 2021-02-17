@@ -87,7 +87,7 @@ class PortfolioController extends Controller
             "body"  => "required"
         ]);
         $portfolio = Portfolio::findOrFail($id);
-        return response($portfolio->fill($request->fill())->save());
+        return response($portfolio->fill($request->all())->save());
     }
 
     /**

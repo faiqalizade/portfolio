@@ -5,7 +5,7 @@
         <div class="admin-portfolio-wrapper">
             <div class="admin-portfolio-item" v-for="(portfolio,index) in PortfolioItems" :key="index">
                 <div class="admin-portfolio-title">
-                    <router-link :to="'update/'+portfolio.id" >{{portfolio.title}}</router-link>
+                    <router-link :to="'/update/'+portfolio.id" >{{portfolio.title}}</router-link>
                     <div v-on:click="deletePortfolio(portfolio.id,index)" ><i class="fas fa-trash"></i></div>
                 </div>
             </div>

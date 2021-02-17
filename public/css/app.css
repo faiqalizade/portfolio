@@ -6738,7 +6738,7 @@ body .modal-wrapper,
 body .modal-wrapper .modal-content-wrapper,
 #app .modal-wrapper .modal-content-wrapper {
     width: calc(100% - 2rem);
-    height: calc(100% - 2rem);
+    min-height: calc(100% - 2rem);
     padding: 1rem !important;
   }
 }
