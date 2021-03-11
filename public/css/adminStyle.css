@@ -1,10 +1,1 @@
-.admin {
-  height: 100%;
-  padding: 3rem;
-}
-.admin .login-page {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+.admin{height:100%;padding:3rem}.admin .login-page{height:100%;display:flex;align-items:center;justify-content:center}
