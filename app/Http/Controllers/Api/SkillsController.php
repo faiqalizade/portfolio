@@ -23,7 +23,7 @@ class SkillsController extends Controller
     public function index()
     {
         //
-        return response(Skills::get()->groupBy("lang"));
+        return response(Skills::get()->sortByDesc('level')->groupBy("lang"));
     }
 
     /**
