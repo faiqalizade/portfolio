@@ -38,11 +38,7 @@ class LoginController extends Controller
      * @return void
      */
     public function __construct(){
-        // $user = new User;
-        // $user->password = Hash::make('Faiq091200200805');
-        // $user->username = 'faigalizade';
-        // $user->save(); 
-        // $this->middleware('auth:sanctum')->except('logout');
+       
     }
 
     public function store(Request $request){
